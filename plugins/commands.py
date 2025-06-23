@@ -54,10 +54,10 @@ async def start(client, message):
 
     if (len(message.command) != 2) or (len(message.command) == 2 and message.command[1] == 'start'):
         buttons = [[
-            InlineKeyboardButton('👨‍🚒 ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('📚 sᴛᴀᴛᴜs 📊', callback_data='stats')
+            InlineKeyboardButton('👨‍🚒 Help', callback_data='help'),
+            InlineKeyboardButton('📚 Status 📊', callback_data='stats')
         ],[
-            InlineKeyboardButton('🤑 Buy Premium', url=f"https://t.me/{temp.U_NAME}?start=premium")
+            InlineKeyboardButton('🤑 Buy Subscription : Remove Ads', url=f"https://t.me/{temp.U_NAME}?start=premium")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
