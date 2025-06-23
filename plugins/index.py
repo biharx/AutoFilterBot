@@ -3,7 +3,7 @@ import time
 import asyncio
 from hydrogram import Client, filters, enums
 from hydrogram.errors import FloodWait
-from info import ADMINS, INDEX_EXTENSIONS
+from info import ADMINS
 from database.ia_filterdb import save_file
 from hydrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from utils import temp, get_readable_time
@@ -26,13 +26,11 @@ async def index_files(bot, query):
         await query.message.edit("Trying to cancel Indexing...")
 
 
-@Client.on_message(filters.command('index') & filters.private & filters.user(ADMINS))
+@Client.on_message(filters.forwarded & filters.private & filters.incoming & filters.user(ADMINS))
 async def send_for_index(bot, message):
     if lock.locked():
         return await message.reply('Wait until previous process complete.')
-    i = await message.reply("Forward last message or send last message link.")
-    msg = await bot.listen(chat_id=message.chat.id, user_id=message.from_user.id)
-    await i.delete()
+    msg = message
     if msg.text and msg.text.startswith("https://t.me"):
         try:
             msg_link = msg.text.split("/")
@@ -113,9 +111,6 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot, skip):
                     continue
                 media = getattr(message, message.media.value, None)
                 if not media:
-                    unsupported += 1
-                    continue
-                elif not (str(media.file_name).lower()).endswith(tuple(INDEX_EXTENSIONS)):
                     unsupported += 1
                     continue
                 media.caption = message.caption
