@@ -184,7 +184,7 @@ async def next_page(bot, query):
                 InlineKeyboardButton(f"🗓{math.ceil(int(offset) / MAX_BTN) + 1}/{math.ceil(total / MAX_BTN)}", callback_data="buttons"),
                 InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ]
-        )
+    )
     await query.message.edit_text(cap + files_link + del_msg, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML)
 
 @Client.on_callback_query(filters.regex(r"^languages"))
@@ -1106,7 +1106,7 @@ async def auto_filter(client, msg, s, spoll=False):
         else:
             btn.insert(0,
                 [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", callback_data=f"send_all#{key}#{req}")]
-            )
+    )
     imdb = await get_poster(search, file=(files[0])['file_name']) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
