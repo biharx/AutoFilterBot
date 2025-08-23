@@ -432,8 +432,6 @@ async def plan(client, message):
     if not IS_PREMIUM:
         return await message.reply('Premium feature was disabled by admin')
     btn = [[
-        InlineKeyboardButton('Activate Trial', callback_data='activate_trial')
-    ],[
         InlineKeyboardButton('Activate Plan', callback_data='activate_plan')
     ]]
     await message.reply(script.PLAN_TXT.format(PRE_DAY_AMOUNT, RECEIPT_SEND_USERNAME), reply_markup=InlineKeyboardMarkup(btn))
