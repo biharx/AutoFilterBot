@@ -2,7 +2,7 @@ class script(object):
 
     START_TXT = """<b>ʜᴇʏ {}, <i>{}</i>
     
-ɪ ᴀᴍ ᴘᴏᴡᴇʀғᴜʟ ᴀᴜᴛᴏ ғɪʟᴛᴇʀ ᴡɪᴛʜ ʟɪɴᴋ sʜᴏʀᴛᴇɴᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ᴀꜱ ᴀᴜᴛᴏ ғɪʟᴛᴇʀ ᴡɪᴛʜ ʟɪɴᴋ sʜᴏʀᴛᴇɴᴇʀ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ... ɪᴛ'ꜱ ᴇᴀꜱʏ ᴛᴏ ᴜꜱᴇ ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ᴀꜱ ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ᴘʀᴏᴠɪᴅᴇ ᴛʜᴇʀᴇ ᴍᴏᴠɪᴇꜱ ᴡɪᴛʜ ʏᴏᴜʀ ʟɪɴᴋ ꜱʜᴏʀᴛᴇɴᴇʀ... ♻️</b>"""
+Premium Filter With PM Search ⚡</b>"""
 
     MY_ABOUT_TXT = """★ Server: <a href=https://www.heroku.com>Heroku</a>
 ★ Database: <a href=https://www.mongodb.com>MongoDB</a>
@@ -77,9 +77,9 @@ Just try my commands"""
 /delete - to delete files using query
 /delete_all - to delete all indexed file
 /broadcast - to send message to all bot users
-/grp_broadcast - to send message to all groups
-/pin_broadcast - to send message as pin to all bot users.
-/pin_grp_broadcast - to send message as pin to all groups.
+/on_auto_filter - On Auto Filter.
+/off_pm_search - Off Pm Search.
+/on_pm_search  - On Pm Search.
 /restart - to restart bot
 /leave - to leave your bot from particular group
 /users - to get all users details
