@@ -642,7 +642,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             secnd_files = '-'
         uptime = get_readable_time(time_now() - temp.START_TIME)
         buttons = [[
-            InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='about')
+            InlineKeyboardButton('« ʙᴀᴄᴋ', callback_data='start')
         ]]
         await query.edit_message_media(
             InputMediaPhoto(random.choice(PICS), caption=script.STATUS_TXT.format(users, prm, chats, used_data_db_size, files, used_files_db_size, secnd_files, secnd_files_db_used_size, uptime)),
