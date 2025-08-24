@@ -33,11 +33,13 @@ async def pm_search(client, message):
     else:
         files, n_offset, total = await get_search_results(message.text)
         btn = [[
+            InlineKeyboardButton("🗂 ᴄʟɪᴄᴋ ʜᴇʀᴇ 🗂", url=FILMS_LINK)
+        ],[
             InlineKeyboardButton('🤑 Buy Subscription : Remove Ads', url=f"https://t.me/{temp.U_NAME}?start=premium")
             ]]
         reply_markup=InlineKeyboardMarkup(btn)
         if int(total) != 0:
-            await message.reply_text(f'<b><i>🤗 ᴛᴏᴛᴀʟ <code>{total}</code> ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ ɪɴ my database 👇</i></b>\n\nor buy premium subscription', reply_markup=reply_markup)
+            await message.reply_text(f'<b><i>🤗 ᴛᴏᴛᴀʟ <code>{total}</code> ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ 👇</i></b>\n\nor buy premium subscription', reply_markup=reply_markup)
 
             
 
@@ -184,6 +186,9 @@ async def next_page(bot, query):
                 InlineKeyboardButton(f"🗓{math.ceil(int(offset) / MAX_BTN) + 1}/{math.ceil(total / MAX_BTN)}", callback_data="buttons"),
                 InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ]
+        )
+    btn.append(
+        [InlineKeyboardButton('🤑 Buy Subscription : Remove Ads', url=f"https://t.me/{temp.U_NAME}?start=premium")]
     )
     await query.message.edit_text(cap + files_link + del_msg, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML)
 
@@ -1106,6 +1111,9 @@ async def auto_filter(client, msg, s, spoll=False):
         else:
             btn.insert(0,
                 [InlineKeyboardButton("♻️ sᴇɴᴅ ᴀʟʟ ♻️", callback_data=f"send_all#{key}#{req}")]
+            )
+    btn.append(
+        [InlineKeyboardButton('🤑 Buy Subscription : Remove Ads', url=f"https://t.me/{temp.U_NAME}?start=premium")]
     )
     imdb = await get_poster(search, file=(files[0])['file_name']) if settings["imdb"] else None
     TEMPLATE = settings['template']
